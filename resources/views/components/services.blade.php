@@ -1,7 +1,7 @@
 <section id="services" class="bg-[#A8D0CF]">
     <div class="container py-[50px]">
         <div class="col-span-1">
-            <div class="title text-white text-8xl font-bornova-bold" animate="up">
+            <div class="title text-white text-5xl md:text-8xl font-bornova-bold" animate="up">
                 {{ $settings['services_section_title'] }}
             </div>
         </div>
