@@ -307,6 +307,10 @@ a:hover {
   font-family: var(--font-bronovabold);
 }
 
+.content {
+  min-height: calc(100vh - 580px);
+}
+
 .service-box-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;

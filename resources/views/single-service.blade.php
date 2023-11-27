@@ -1,7 +1,7 @@
 <x-layout :service="$service">
     <x-navbar :settings="$settings" :menulinks="$menu_items" />
     <x-single-page-banner :service="$service" />
-    <div class="container py-10">
+    <div class="container py-10 content">
         <div class="description text-[#464159] font-bornova">
             @if ($service['long_description'])
                 @php
