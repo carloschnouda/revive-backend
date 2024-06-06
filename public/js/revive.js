@@ -24,46 +24,49 @@ $(document).ready(function () {
         }
     });
 
-    // Function to scroll to a section
     function scrollToSection(section) {
         $('html, body').animate({
             scrollTop: $(`#${section}`).offset().top
         }, 1500);
     }
 
-    // Check if there is a hash in the URL, and if so, scroll to that section
-    $(document).ready(function () {
-        var hash = window.location.hash;
-        if (hash) {
-            var section = hash.substring(1); // remove the '#' character
+    let url = new URLSearchParams(window.location.search);
+    let sectionSlug = url.get('section');
+
+    if (sectionSlug) {
+        scrollToSection(sectionSlug);
+    }
+
+    $(".destop-menu-wrapper ul li div, .mobile-menu-links ul li div").click(function (e) {
+        e.preventDefault();
+
+        var section = $(this).data('section');
+
+        if (window.location.pathname === '/') {
+            window.history.pushState({}, '', `?section=${section}`);
             scrollToSection(section);
+        } else {
+            window.location.href = `/?section=${section}`;
         }
+    });
 
-        $(".destop-menu-wrapper ul li a, .mobile-menu-links ul li a").click(function (e) {
-            e.preventDefault();
+    $(".destop-menu-wrapper ul li a, .mobile-menu-links ul li a").click(function (e) {
+        e.preventDefault();
 
-            var section = $(this).data('section');
-
-            // Check if the current page URL is the home route
-            if (window.location.pathname === "/") {
-                // If on the home route, scroll to the section
-                scrollToSection(section);
-            } else {
-                // If not on the home route, redirect to the home route with the section as a hash
-                window.location.href = "/#" + section;
-            }
-        });
+        var section = $(this).data('section');
+        if (window.location.pathname === '/') {
+            window.history.pushState({}, '', `?section=${section}`);
+            scrollToSection(section);
+        } else {
+            window.location.href = `/?section=${section}`;
+        }
     });
 
 
-    $(".mobile-menu-links ul li a").click(function () {
+
+    $(".mobile-menu-links ul li div, .mobile-menu-links ul li a").click(function () {
         $('.mobile-menu-wrapper').removeClass('menu-open');
         $('.mobile-nav-wrapper').removeClass('active');
-        var section = $(this).data('section');
-
-        $('html, body').animate({
-            scrollTop: $(`#${section}`).offset().top
-        }, 1500);
     });
 
     var swiper = new Swiper(".mySwiper", {

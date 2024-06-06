@@ -15,9 +15,9 @@
                         @foreach ($menulinks as $item)
                             <li>
                                 @if (Route::currentRouteName() == 'home')
-                                    <a data-section="{{ $item['slug'] }}">
+                                    <div data-section="{{ $item['slug'] }}">
                                         {{ $item['title'] }}
-                                    </a>
+                                    </div>
                                 @else
                                     <a href="{{ route('home') }}" data-section="{{ $item['slug'] }}">
                                         {{ $item['title'] }}
@@ -46,15 +46,23 @@
     </div>
     <div class="mobile-nav-wrapper block lg:hidden">
         <div class="menu-content container h-full">
-            <div class="mobile-menu-links h-full pt-20">
+            <div class="mobile-menu-links h-full pt-[120px]">
 
                 <ul class="flex flex-col">
                     @foreach ($menulinks as $item)
-                        <li class="mb-10">
-                            <a data-section="{{ $item['slug'] }}">
-                                {{ $item['title'] }}
-                            </a>
-                        </li>
+                        @if (Route::currentRouteName() == 'home')
+                            <li class="mb-10">
+                                <div data-section="{{ $item['slug'] }}">
+                                    {{ $item['title'] }}
+                                </div>
+                            </li>
+                        @else
+                            <li class="mb-10">
+                                <a href="{{ route('home') }}" data-section="{{ $item['slug'] }}">
+                                    {{ $item['title'] }}
+                                </a>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
             </div>

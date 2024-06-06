@@ -98,6 +98,22 @@ a:hover {
   color: #87C8C6;
 }
 
+.mobile-menu-links ul {
+  align-items: center;
+}
+.mobile-menu-links ul li {
+  list-style: none;
+  font-size: 24px;
+  color: var(--white-color);
+  font-family: var(--font-bronovabold);
+}
+.mobile-menu-links ul li a {
+  list-style: none;
+  font-size: 24px;
+  color: var(--white-color);
+  font-family: var(--font-bronovabold);
+}
+
 .destop-menu-wrapper ul {
   display: flex;
   justify-content: flex-end;
@@ -106,6 +122,14 @@ a:hover {
 .destop-menu-wrapper ul li {
   list-style: none;
   margin-right: 20px;
+  font-size: 20px;
+  color: var(--white-color);
+  font-family: var(--font-bronovabold);
+  transition: color 0.4s ease-in-out;
+}
+.destop-menu-wrapper ul li:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
 }
 .destop-menu-wrapper ul li:last-child {
   margin-right: 0;

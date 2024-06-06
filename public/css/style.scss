@@ -115,6 +115,26 @@ a {
     }
 }
 
+.mobile-menu-links {
+    ul {
+        align-items: center;
+
+        li {
+            list-style: none;
+            font-size: 24px;
+            color: var(--white-color);
+            font-family: var(--font-bronovabold);
+
+            a {
+                list-style: none;
+                font-size: 24px;
+                color: var(--white-color);
+                font-family: var(--font-bronovabold);
+            }
+        }
+    }
+}
+
 .destop-menu-wrapper {
     ul {
         display: flex;
@@ -124,6 +144,16 @@ a {
         li {
             list-style: none;
             margin-right: 20px;
+
+            font-size: 20px;
+            color: var(--white-color);
+            font-family: var(--font-bronovabold);
+            transition: color 0.4s ease-in-out;
+
+            &:hover {
+                color: var(--secondary-color);
+                cursor: pointer;
+            }
 
             &:last-child {
                 margin-right: 0;
@@ -341,7 +371,8 @@ a {
         }
     }
 }
-.content{
+
+.content {
     min-height: calc(100vh - 580px);
 }
 
@@ -361,47 +392,47 @@ a {
 [animate] {
     transition: transform 1s 0.5s, opacity 1s 0.5s;
     opacity: 0;
-  }
+}
 
-  [animate].show {
+[animate].show {
     opacity: 1;
-  }
+}
 
-  [animate="left"] {
+[animate="left"] {
     transform: translateX(-15px);
-  }
+}
 
-  [animate="left"].show {
+[animate="left"].show {
     transform: translateX(0);
-  }
+}
 
-  [animate="right"] {
+[animate="right"] {
     transform: translateX(15px);
-  }
+}
 
-  [animate="right"].show {
+[animate="right"].show {
     transform: translateX(0);
-  }
+}
 
-  [animate="up"] {
+[animate="up"] {
     transform: translateY(-15px);
-  }
+}
 
-  [animate="up"].show {
+[animate="up"].show {
     transform: translateY(0);
-  }
+}
 
-  [animate="down"] {
+[animate="down"] {
     transform: translateY(15px);
-  }
+}
 
-  [animate="down"].show {
+[animate="down"].show {
     transform: translateY(0);
-  }
+}
 
-  .no-transition-delay {
+.no-transition-delay {
     transition-delay: 0s;
-  }
+}
 
 //Medium Screens
 @media (max-width:991px) {
