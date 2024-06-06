@@ -1,7 +1,7 @@
 <div class="video-container">
     <div class="h-full w-full">
         @if ($settings['banner_video'])
-            <video autoplay muted playsinline loop id="video-background">
+            <video autoplay muted playsinline loop id="video-background" poster="{{asset('images/black-bg.webp')}}">
                 <source src="{{ Storage::url($settings['banner_video']) }}" type="video/mp4">
             </video>
             <div class="mute-button absolute right-5 bottom-5 sm:right-10 sm:bottom-10 ">
