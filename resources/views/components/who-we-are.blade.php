@@ -1,4 +1,4 @@
-<section id="who-we-are" style="background-image: url({{ Storage::url($settings['who_we_are_image']) }})" class="w-full overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat">
+<section id="who-we-are" style="background-image: url({{ Storage::url($settings['who_we_are_image']) }})" class="w-full overflow-y-scroll bg-cover bg-scroll lg:bg-fixed bg-center bg-no-repeat">
     <div class="container py-20 lg:py-50 z-10 relative h-full">
         <div class="flex flex-row">
             <div class="basis-1/4">
