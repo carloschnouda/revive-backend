@@ -19,12 +19,12 @@
         <div class="container w-full">
             <div class="flex flex-row">
                 <div class="basis-full">
-                    <div animate>
+                    <div>
                         {!! $settings['banner_description'] !!}
                     </div>
                 </div>
             </div>
-            <div class="basis-full text-center" animate="down" style="transition-delay: 1s">
+            <div class="basis-full text-center">
                 <div class="video-button mt-[45px]">
                     @if ($settings['banner_button'])
                         <a href="{{ $settings['banner_button_url'] }}">
