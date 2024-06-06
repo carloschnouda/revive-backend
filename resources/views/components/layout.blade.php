@@ -8,8 +8,8 @@
         @php
             if (Route::currentRouteName() == 'single-service') {
                 $seo = new stdClass();
-                $seo->title = isset($service->title) ? $service->title : 'Revive | Serives';
-                $seo->image = isset($service->seo_image) ? Storage::url($service->seo_image) : '';
+                $seo->title = isset($service->title) ? 'Revive Clinic | '.$service->title : 'Revive Clinic | Serives';
+                $seo->image = isset($service->icon) ? $service->icon : '';
                 // Limit the description to 160 characters (you can adjust this value)
                 $maxLength = 160;
                 $rawDescription = isset($service->description) ? $service->description : '';
@@ -73,6 +73,19 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
+        
+        
+        <meta name="google-site-verification" content="vwewKyfobKNEL1EGkTV-guGaQAk1a0hH4FO0XsyyoDg" />
+        
+           <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-73Z5T364G2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-73Z5T364G2');
+        </script>
 
     </head>
 
