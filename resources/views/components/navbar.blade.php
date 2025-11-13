@@ -1,15 +1,14 @@
 <nav class="transparent-nav">
-    <div class="container">
-        <div class="flex flex-row items-center justify-between py-4">
-            <div class="basis-1/7">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-row items-center justify-between">
+            <div class="flex-shrink-0">
                 <div class="menu-logo">
                     <a href="{{ route('home') }}">
                         <img src="{{ Storage::url($settings['logo']) }}" alt="Menu Logo">
                     </a>
                 </div>
-
             </div>
-            <div class="basis-1x7">
+            <div class="flex items-center">
                 <div class="destop-menu-wrapper">
                     <ul>
                         @foreach ($menulinks as $item)
@@ -46,18 +45,26 @@
     </div>
     <div class="mobile-nav-wrapper block lg:hidden">
         <div class="menu-content container h-full">
-            <div class="mobile-menu-links h-full pt-[120px]">
-
-                <ul class="flex flex-col">
+            <!-- Close Button -->
+            <div class="close-menu-button">
+                <button class="close-btn" aria-label="Close Menu">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 8L8 24M8 8L24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-menu-links h-full flex items-center justify-center">
+                <ul class="flex flex-col items-center">
                     @foreach ($menulinks as $item)
                         @if (Route::currentRouteName() == 'home')
-                            <li class="mb-10">
+                            <li class="mb-8">
                                 <div data-section="{{ $item['slug'] }}">
                                     {{ $item['title'] }}
                                 </div>
                             </li>
                         @else
-                            <li class="mb-10">
+                            <li class="mb-8">
                                 <a href="{{ route('home') }}" data-section="{{ $item['slug'] }}">
                                     {{ $item['title'] }}
                                 </a>
