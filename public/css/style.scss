@@ -1352,7 +1352,9 @@ footer {
 /* Modern Service Cards - Enhanced for White Background */
 .swiper-slide {
     transition: transform var(--transition-base);
+    height: auto !important;
 
+    /* Make sure it's flex */
     >div {
         background: var(--white-color);
         border-radius: var(--radius-2xl);
@@ -1411,7 +1413,7 @@ footer {
         position: relative;
         background: linear-gradient(135deg, rgba(135, 200, 198, 0.1) 0%, rgba(94, 232, 224, 0.1) 100%);
         border-radius: var(--radius-xl);
-        padding: var(--space-4);
+        // padding: var(--space-4);
 
         img {
             transition: transform var(--transition-slow);
