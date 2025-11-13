@@ -1,16 +1,17 @@
-<section id="services" class="bg-[#A8D0CF]">
+<section id="services" class="bg-gradient-to-b from-white via-[#F9FAFB] to-[#F3F4F6]">
     <div class="container py-[50px]">
-        <div class="col-span-1">
-            <div class="title text-white text-5xl md:text-8xl font-bornova-bold" animate="up">
+        <div class="col-span-1 text-center mb-8" animate="up">
+            <div class="title text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] to-[#87C8C6] text-5xl md:text-7xl font-black">
                 {{ $settings['services_section_title'] }}
             </div>
+            <div class="w-20 h-1 bg-gradient-to-r from-[#14b8a6] to-[#87C8C6] rounded-full mx-auto mt-4"></div>
         </div>
-        <div class="col-span-1 w-4/5 text-[#464159] pt-12 font-bornova" animate="up" style="transition-delay: 1s">
+        <div class="col-span-1 max-w-3xl mx-auto text-center text-[#4B5563] pt-6 text-lg font-normal" animate="up" style="transition-delay: 0.3s">
             {{ $settings['services_section_description'] }}
         </div>
         <div class="col-span-1 py-12 ">
             <div class="swiper mySwiper grid">
-                <div class="swiper-wrapper grid-cols-3 max-h-[95%]">
+                <div class="swiper-wrapper grid-cols-3 max-h-[95%] py-2">
                     @foreach ($services as $i => $service)
                         <div class="swiper-slide h-full" animate="down" style="transition-delay: {{ $i * 0.4 }}s">
                             <div
@@ -25,12 +26,14 @@
                                         alt="">
                                 </div>
                                 <div class="service-box-description mb-5 flex-grow-[1]">
-                                    {{ $service['description'] }}
+                                    <p>
+                                        {{ $service['description'] }}
+                                    </p>
                                 </div>
                                 @if (isset($service['single_page']) && $service['single_page'])
                                     <a href="{{ route('single-service', $service['slug']) }}">
                                         <div
-                                            class="button bg-[#969797] text-white rounded py-2 hover:bg-[#A8D0CF] duration-1000 cursor-pointer">
+                                            class="button text-white rounded py-2  duration-1000 cursor-pointer">
                                             {{ $settings['services_button'] }}
                                         </div>
                                     </a>

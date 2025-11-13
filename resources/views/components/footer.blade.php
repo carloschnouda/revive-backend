@@ -14,7 +14,7 @@
                 <div>
                     <h1 class="text-white font-montserrat-xbold md:text-xl lg:text-3xl mb-3 md:mb-10">
                         {{ $settings['connect_title'] }}</h1>
-                    <div class="social-wrapper">
+                    <div class="social-wrapper grid grid-cols-2 md:grid-cols-1 gap-1 mt-5">
                         @foreach ($sociallinks as $item)
                             <a href="{{ $item['url'] }}" target="_blank">
                                 <div class="flex flex-row items-center mb-3">

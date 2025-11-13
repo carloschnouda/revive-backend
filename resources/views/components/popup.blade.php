@@ -1,32 +1,49 @@
 @foreach ($team as $item)
     <div
-        class="popup-wrapper z-40 hidden fixed top-0 left-0 w-full h-[100vh] popup-wrapper-{{ $item->id }} bg-[#87c8c638]">
+        class="popup-wrapper z-[9999] hidden fixed inset-0 w-full h-screen popup-wrapper-{{ $item->id }} bg-gradient-to-br from-[#1E293B]/95 via-[#334155]/90 to-[#0F172A]/95 backdrop-blur-md transition-all duration-500 ease-out opacity-0"
+        style="animation: fadeIn 0.4s ease-out forwards;">
 
         <div
-            class="fixed top-[50%] z-50 left-[50%] -translate-x-1/2 -translate-y-1/2 bg-[#fff] w-3/4 h-3/4 sm:h-auto md:w-auto overflow-y-auto p-10">
-            <div class="content-wrapper">
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="col-span-1 pe-5">
-                        <img class="object-contain max-h-72 w-full text-center" src="{{ Storage::url($item['image']) }}"
-                            alt="">
-                    </div>
-                    <div class="col-span-1">
-                        <div class="title mt-5">
-                            <div class="text-[#969797] font-bornova-bold border-b-2 border-[#E3E8EC]">
-                                {{ $item['name'] }}
-                            </div>
+            class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-2xl w-[90%] max-w-4xl max-h-[90vh] overflow-hidden transform scale-95 transition-all duration-500"
+            style="animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
 
-                            <div class="mt-5">
-                                {!! $item['description'] !!}
-                            </div>
+            <!-- Close Button -->
+            <button class="close-modal absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 group">
+                <svg class="w-6 h-6 text-white transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Content Wrapper with Scroll -->
+            <div class="content-wrapper overflow-y-auto max-h-[90vh] p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
+
+                    <!-- Image Column -->
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#CCFBF8] to-[#A8D0CF] p-4">
+                            <img class="object-contain w-full h-auto max-h-80 rounded-xl"
+                                 src="{{ Storage::url($item['image']) }}"
+                                 alt="{{ $item['name'] }}">
+                        </div>
+                    </div>
+
+                    <!-- Content Column -->
+                    <div class="col-span-1 md:col-span-3">
+                        <!-- Name and Title -->
+                        <div class="mb-6">
+                            <h3 class="text-3xl md:text-4xl font-black text-gray-900 mb-3 leading-tight">
+                                {{ $item['name'] }}
+                            </h3>
+                            <div class="w-20 h-1 bg-gradient-to-r from-[#14b8a6] to-[#87C8C6] rounded-full"></div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="prose prose-lg max-w-none team-member-description">
+                            {!! $item['description'] !!}
                         </div>
                     </div>
                 </div>
-                <div class="close-modal fixed right-[10px] top-[10px] cursor-pointer ">
-                    <img src="{{ asset('images/close.svg') }}" alt="">
-                </div>
             </div>
         </div>
-
     </div>
 @endforeach

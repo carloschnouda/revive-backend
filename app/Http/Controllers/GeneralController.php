@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ContactSetting;
+use App\ExperienceCard;
 use App\FixedSetting;
 use App\MenuItem;
 use App\OurTeam;
@@ -25,14 +26,19 @@ class GeneralController extends Controller
         return OurTeam::orderBy('ht_pos')->get();
     }
 
+    function getExperienceStats() {
+        return ExperienceCard::orderBy('ht_pos')->get();
+    }
+
 
 
     function index() {
         $team = $this->getAllTeamMembers();
         $services = $this->getAllServices();
         $seo_page = SeoPage::where('slug', 'home')->firstOrFail();
+        $experience_stats = $this->getExperienceStats();
 
-        return view('home', compact('team', 'services', 'seo_page'));
+        return view('home', compact('team', 'services', 'seo_page', 'experience_stats'));
     }
 
     function singleService($slug) {

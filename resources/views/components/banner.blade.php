@@ -17,24 +17,26 @@
 
     <div class="video-description">
         <div class="container w-full">
-            <div class="flex flex-row">
+            <div class="flex flex-col items-center">
                 <div class="basis-full">
                     <div>
                         {!! $settings['banner_description'] !!}
                     </div>
                 </div>
-            </div>
-            <div class="basis-full text-center">
-                <div class="video-button mt-[45px]">
-                    @if ($settings['banner_button'])
-                        <a href="{{ $settings['banner_button_url'] }}">
-                            <button class="btn rounded p-2">
-                                {{ $settings['banner_button'] }}
-                            </button>
-                        </a>
-                    @endif
+                <div class="basis-full text-center">
+                    <div class="video-button mt-[45px]">
+                        @if ($settings['banner_button'])
+                            <a href="{{ $settings['banner_button_url'] }}">
+                                <button class="btn rounded p-2">
+                                    {{ $settings['banner_button'] }}
+                                </button>
+                            </a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="scroll-indicator"></div>
 </div>
