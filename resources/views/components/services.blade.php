@@ -10,28 +10,28 @@
             {{ $settings['services_section_description'] }}
         </div>
         <div class="col-span-1 py-12 ">
-            <div class="swiper mySwiper grid">
-                <div class="swiper-wrapper grid-cols-3 max-h-[95%] py-2">
+            <div class="swiper mySwiper ">
+                <div class="swiper-wrapper py-2">
                     @foreach ($services as $i => $service)
                         <div class="swiper-slide h-full" animate="down" style="transition-delay: {{ $i * 0.4 }}s">
                             <div
-                                class="bg-white text-[#969797] text-center h-full p-8 flex flex-col shadow-md rounded-lg">
-                                <div class="service-title mb-5">
+                                class="bg-white text-[#969797] text-center p-4 md:p-8 h-full flex flex-col shadow-md rounded-lg">
+                                <div class="service-title mb-5 min-h-[56px] flex items-center justify-center">
                                     <h4 class="text-lg font-bornova-bold">
                                         {{ $service['title'] }}
                                     </h4>
                                 </div>
-                                <div class="image mb-5 mx-auto w-full flex justify-center">
-                                    <img class="object-contain h-[165px]" src="{{ Storage::url($service['icon']) }}"
-                                        alt="">
+                                <div class="image mb-5 mx-auto w-full flex justify-center p-4 md:p-8">
+                                    <img class="object-contain h-[120px] md:h-[165px]" src="{{ Storage::url($service['icon']) }}"
+                                        alt="{{ $service['title'] }}">
                                 </div>
-                                <div class="service-box-description mb-5 flex-grow-[1]">
+                                <div class="service-box-description mb-5 flex-grow">
                                     <p>
                                         {{ $service['description'] }}
                                     </p>
                                 </div>
                                 @if (isset($service['single_page']) && $service['single_page'])
-                                    <a href="{{ route('single-service', $service['slug']) }}">
+                                    <a class="mt-auto" href="{{ route('single-service', $service['slug']) }}">
                                         <div
                                             class="button text-white rounded py-2  duration-1000 cursor-pointer">
                                             {{ $settings['services_button'] }}
